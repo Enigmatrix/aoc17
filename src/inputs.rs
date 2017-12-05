@@ -1625,3 +1625,4 @@ pub const DAY5:&'static str = "1
 -698
 -81
 -682";
+pub const DAY6:&'static str = "";
