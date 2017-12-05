@@ -4,14 +4,14 @@ pub fn day05_1(s : String) -> u32{
         .collect();
     let mut idx = 0i32;
     let ln = list.len() as i32;
-    let mut s = 0;
+    let mut sum = 0;
     while idx < ln {
         let nidx = list[idx as usize]+idx;
         list[idx as usize] += 1;
         idx = nidx;
-        s+=1;
+        sum+=1;
     }
-    s
+    sum
 }
 
 pub fn day05_2(s: String) -> u32{
@@ -20,14 +20,14 @@ pub fn day05_2(s: String) -> u32{
         .collect();
     let mut idx = 0i32;
     let ln = list.len() as i32;
-    let mut s = 0;
+    let mut sum = 0;
     while idx < ln {
         let nidx = list[idx as usize]+idx;
         if list[idx as usize] >= 3 
-            { list[idx as usize] -= 1; }
+             { list[idx as usize] -= 1; }
         else { list[idx as usize] += 1; }
         idx = nidx;
-        s+=1;
+        sum+=1;
     }
-    s
+    sum
 }
