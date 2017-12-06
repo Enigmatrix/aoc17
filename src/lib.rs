@@ -5,6 +5,7 @@ mod day03;
 mod day04;
 mod day05;
 mod day06;
+mod day07;
 
 #[cfg(test)]
 mod tests{
@@ -15,6 +16,7 @@ mod tests{
     use day04::*;
     use day05::*;
     use day06::*;
+    use day07::*;
 
     #[test]
     fn test_day01_1(){
@@ -83,5 +85,13 @@ mod tests{
     fn test_day06_2(){
         assert_eq!(4, day06_2("0\t2\t7\t0".to_string()));
         println!("Day 06 (2): {}", day06_2(DAY6.to_string()))
+    }
+    #[test]
+    fn test_day07_1(){
+        println!("Day 07 (1): {}", day07_1(DAY7.to_string()))
+    }
+    #[test]
+    fn test_day07_2(){
+        println!("Day 07 (2): {}", day07_2(DAY7.to_string()))
     }
 }

@@ -1626,3 +1626,4 @@ pub const DAY5:&'static str = "1
 -81
 -682";
 pub const DAY6:&'static str = "2	8	8	5	4	2	3	1	5	5	1	2	15	13	5	14";
+pub const DAY7:&'static str = "";
