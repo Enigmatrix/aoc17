@@ -76,10 +76,12 @@ mod tests{
     }
     #[test]
     fn test_day06_1(){
+        assert_eq!(5, day06_1("0\t2\t7\t0".to_string()));
         println!("Day 06 (1): {}", day06_1(DAY6.to_string()))
     }
     #[test]
     fn test_day06_2(){
+        assert_eq!(4, day06_2("0\t2\t7\t0".to_string()));
         println!("Day 06 (2): {}", day06_2(DAY6.to_string()))
     }
 }
