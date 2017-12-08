@@ -3907,3 +3907,4 @@ s inc 949 if y >= -3196
 fk dec -576 if ntq != -2514
 y dec 373 if ntq == -2512
 e inc -223 if ku >= 3325";
+pub const DAY9:&'static str = "";
