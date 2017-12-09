@@ -8,7 +8,7 @@ pub fn day03_1(s : u32) -> u32{
 
 //bruteforce :<
 pub fn day03_2(s: u32) -> u32{
-    let mut state:Vec<u32> = vec![1,1,2,4,5,10,11,23,25];
+    /*let mut state:Vec<u32> = vec![1,1,2,4,5,10,11,23,25];
     let mut side = 4;
     let mut sidew = 0;
     let mut idx:u32 = 10;
@@ -31,5 +31,6 @@ pub fn day03_2(s: u32) -> u32{
         }
         idx+=1;
     }
-    *state.last().unwrap() as u32
+    *state.last().unwrap() as u32*/
+    1
 }

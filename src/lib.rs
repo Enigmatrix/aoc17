@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 mod inputs;
 mod day01;
 mod day02;
@@ -112,6 +113,9 @@ mod tests{
     }
     #[test]
     fn test_day09_2(){
+        //assert_eq!(0, day09_2("<!!!>>".to_string()));
+        //assert_eq!(3, day09_2("<<<<>".to_string()));
+        assert_eq!(10, day09_2("<{o\"i!a,<{i<a>".to_string()));
         println!("Day 09 (2): {}", day09_2(DAY9.to_string()))
     }
 }
