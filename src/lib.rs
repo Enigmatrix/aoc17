@@ -1,4 +1,5 @@
 #![allow(dead_code)]
+#![allow(unused_imports)]
 mod inputs;
 mod day01;
 mod day02;
@@ -9,6 +10,7 @@ mod day06;
 mod day07;
 mod day08;
 mod day09;
+mod day10;
 
 #[cfg(test)]
 mod tests{
@@ -22,6 +24,7 @@ mod tests{
     use day07::*;
     use day08::*;
     use day09::*;
+    use day10::*;
 
     #[test]
     fn test_day01_1(){
@@ -113,9 +116,17 @@ mod tests{
     }
     #[test]
     fn test_day09_2(){
-        //assert_eq!(0, day09_2("<!!!>>".to_string()));
-        //assert_eq!(3, day09_2("<<<<>".to_string()));
+        assert_eq!(0, day09_2("<!!!>>".to_string()));
+        assert_eq!(3, day09_2("<<<<>".to_string()));
         assert_eq!(10, day09_2("<{o\"i!a,<{i<a>".to_string()));
         println!("Day 09 (2): {}", day09_2(DAY9.to_string()))
+    }
+    #[test]
+    fn test_day10_1(){
+        println!("Day 10 (1): {}", day10_1(DAY10.to_string()))
+    }
+    #[test]
+    fn test_day10_2(){
+        println!("Day 10 (2): {}", day10_2(DAY10.to_string()))
     }
 }
