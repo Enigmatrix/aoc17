@@ -32,5 +32,5 @@ pub fn day03_2(s: u32) -> u32{
         idx+=1;
     }
     *state.last().unwrap() as u32*/
-    1
+    s
 }

@@ -123,7 +123,8 @@ mod tests{
     }
     #[test]
     fn test_day10_1(){
-        println!("Day 10 (1): {}", day10_1(DAY10.to_string()))
+        assert_eq!(12, day10_1("3,4,1,5".to_string(), 5));
+        println!("Day 10 (1): {}", day10_1(DAY10.to_string(), 256))
     }
     #[test]
     fn test_day10_2(){
