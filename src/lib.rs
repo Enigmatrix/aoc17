@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
+extern crate disjoint_sets;
 mod inputs;
 mod day01;
 mod day02;
