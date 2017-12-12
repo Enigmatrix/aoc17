@@ -14,6 +14,7 @@ mod day09;
 mod day10;
 mod day11;
 mod day12;
+mod day13;
 
 #[cfg(test)]
 mod tests{
@@ -30,6 +31,7 @@ mod tests{
     use day10::*;
     use day11::*;
     use day12::*;
+    use day13::*;
 
     #[test]
     fn test_day01_1(){

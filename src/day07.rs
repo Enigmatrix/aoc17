@@ -40,7 +40,7 @@ pub fn day07_2(s: String) -> u32{
     for dat in list.iter(){
         weight_find(dat.0, &&mut data, &mut weight);
     }
-    let mut root = "gynfwly"; //teehee
+    let mut root:&str = &*day07_1(s.clone()); //teehee
     let mut prevd = 0u32;
     loop{
         let l = data.get(root).unwrap().1;
