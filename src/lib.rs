@@ -15,6 +15,7 @@ mod day10;
 mod day11;
 mod day12;
 mod day13;
+mod day14;
 
 #[cfg(test)]
 mod tests{
@@ -32,6 +33,7 @@ mod tests{
     use day11::*;
     use day12::*;
     use day13::*;
+    use day14::*;
 
     #[test]
     fn test_day01_1(){
@@ -169,5 +171,13 @@ mod tests{
 4: 4
 6: 4".to_string()));
         println!("Day 13 (2): {}", day13_2(DAY13.to_string()))
+    }
+    #[test]
+    fn test_day14_1(){
+        println!("Day 14 (1): {}", day14_1(DAY14.to_string()))
+    }
+    #[test]
+    fn test_day14_2(){
+        println!("Day 14 (2): {}", day14_2(DAY14.to_string()))
     }
 }
