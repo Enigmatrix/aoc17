@@ -154,4 +154,20 @@ mod tests{
     fn test_day12_2(){
         println!("Day 12 (2): {}", day12_2(DAY12.to_string()))
     }
+    #[test]
+    fn test_day13_1(){
+        assert_eq!(24, day13_1("0: 3
+1: 2
+4: 4
+6: 4".to_string()));
+        println!("Day 13 (1): {}", day13_1(DAY13.to_string()))
+    }
+    #[test]
+    fn test_day13_2(){
+        assert_eq!(10, day13_2("0: 3
+1: 2
+4: 4
+6: 4".to_string()));
+        println!("Day 13 (2): {}", day13_2(DAY13.to_string()))
+    }
 }
