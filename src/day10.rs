@@ -42,7 +42,8 @@ pub fn day10_2(s: String) -> String {
             }
         }
     }
+
     buf.chunks(16)
         .map(|v| v.iter().fold(0, |a,c| a^c))
-        .fold("".to_owned(), |a,c| a+&format!("{:x}", c))
+        .fold("".to_owned(), |a,c| a+&format!("{:02x}", c))
 }

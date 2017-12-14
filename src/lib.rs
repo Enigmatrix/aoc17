@@ -178,6 +178,7 @@ mod tests{
     }
     #[test]
     fn test_day14_2(){
+        assert_eq!(1242, day14_2("flqrgnkx".to_string()));
         println!("Day 14 (2): {}", day14_2(DAY14.to_string()))
     }
 }
