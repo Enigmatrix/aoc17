@@ -5954,4 +5954,6 @@ pub const DAY13:&'static str = "0: 3
 90: 14
 94: 17";
 pub const DAY14:&'static str = "jzgqcdpd";
-pub const DAY15:&'static str = "";
+pub const DAY15_A:u64 = 783;
+pub const DAY15_B:u64 = 325;
+pub const DAY16:&'static str = "";

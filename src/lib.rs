@@ -185,10 +185,10 @@ mod tests{
     }
     #[test]
     fn test_day15_1(){
-        println!("Day 15 (1): {}", day15_1(DAY15.to_string()))
+        println!("Day 15 (1): {}", day15_1(DAY15_A, DAY15_B))
     }
     #[test]
     fn test_day15_2(){
-        println!("Day 15 (2): {}", day15_2(DAY15.to_string()))
+        println!("Day 15 (2): {}", day15_2(DAY15_A,DAY15_B))
     }
 }
