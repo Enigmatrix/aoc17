@@ -8,7 +8,6 @@ pub fn day17_1(s: usize) -> u32 {
         cur = ((cur + s) % arr.len())+1;
         arr.insert(cur, i);
     }
-    println!("{:?}", arr[..30].iter().collect::<Vec<_>>());
     arr[(cur+1)%arr.len()]
 }
 pub fn day17_2(s: usize) -> u32 {

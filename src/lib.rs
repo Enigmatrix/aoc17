@@ -1,4 +1,3 @@
-#![feature(linked_list_extras)]
 #![allow(dead_code)]
 #![allow(unused_imports)]
 extern crate disjoint_sets;
@@ -20,6 +19,7 @@ mod day14;
 mod day15;
 mod day16;
 mod day17;
+mod day18;
 
 #[cfg(test)]
 mod tests{
@@ -41,6 +41,7 @@ mod tests{
     use day15::*;
     use day16::*;
     use day17::*;
+    use day18::*;
 
     #[test]
     fn test_day01_1(){
@@ -211,5 +212,13 @@ mod tests{
     #[test]
     fn test_day17_2(){
         println!("Day 17 (2): {}", day17_2(DAY17))
+    }
+    #[test]
+    fn test_day18_1(){
+        println!("Day 18 (1): {}", day18_1(DAY18.to_string()))
+    }
+    #[test]
+    fn test_day18_2(){
+        println!("Day 18 (2): {}", day18_2(DAY18.to_string()))
     }
 }
