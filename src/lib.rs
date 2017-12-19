@@ -20,6 +20,7 @@ mod day15;
 mod day16;
 mod day17;
 mod day18;
+mod day19;
 
 #[cfg(test)]
 mod tests{
@@ -42,6 +43,7 @@ mod tests{
     use day16::*;
     use day17::*;
     use day18::*;
+    use day19::*;
 
     #[test]
     fn test_day01_1(){
@@ -215,10 +217,28 @@ mod tests{
     }
     #[test]
     fn test_day18_1(){
+        assert_eq!(4, day18_1("set a 1
+add a 2
+mul a a
+mod a 5
+snd a
+set a 0
+rcv a
+jgz a -1
+set a 1
+jgz a -2".to_string()));
         println!("Day 18 (1): {}", day18_1(DAY18.to_string()))
     }
     #[test]
     fn test_day18_2(){
         println!("Day 18 (2): {}", day18_2(DAY18.to_string()))
+    }
+    #[test]
+    fn test_day19_1(){
+        println!("Day 19 (1): {}", day19_1(DAY19.to_string()))
+    }
+    #[test]
+    fn test_day19_2(){
+        println!("Day 19 (2): {}", day19_2(DAY19.to_string()))
     }
 }
