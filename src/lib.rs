@@ -1,4 +1,5 @@
 #![allow(dead_code)]
+#![feature(slice_patterns)]
 #![allow(unused_imports)]
 extern crate disjoint_sets;
 mod inputs;
@@ -22,6 +23,8 @@ mod day17;
 mod day18;
 mod day19;
 mod day20;
+mod day21;
+mod day22;
 
 #[cfg(test)]
 mod tests{
@@ -46,6 +49,8 @@ mod tests{
     use day18::*;
     use day19::*;
     use day20::*;
+    use day21::*;
+    use day22::*;
 
     #[test]
     fn test_day01_1(){
@@ -250,5 +255,27 @@ jgz a -2".to_string()));
     #[test]
     fn test_day20_2(){
         println!("Day 20 (2): {}", day20_2(DAY20.to_string()))
+    }
+    #[test]
+    fn test_day21_1(){
+        println!("Day 21 (1): {}", day21_1(DAY21.to_string()))
+    }
+    #[test]
+    fn test_day21_2(){
+        println!("Day 21 (2): {}", day21_2(DAY21.to_string()))
+    }
+    #[test]
+    fn test_day22_1(){
+        assert_eq!(5587, day22_1("..#
+#..
+...".to_string()));
+        println!("Day 22 (1): {}", day22_1(DAY22.to_string()))
+    }
+    #[test]
+    fn test_day22_2(){
+        assert_eq!(2511944, day22_2("..#
+#..
+...".to_string()));
+        println!("Day 22 (2): {}", day22_2(DAY22.to_string()))
     }
 }
