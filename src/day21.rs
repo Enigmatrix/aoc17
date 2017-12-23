@@ -36,29 +36,35 @@ impl Mapping {
         if sz != self.input.len() {
             return false;
         }
-        for n in 0..8{
-            let rvs = n & 0b001;
+        for n in 0..8 {
+            let rvs = n & 0b001 > 0;
+            let a = n & 0b010 > 0;
+            let b = n & 0100 > 0;
+            let res = Mapping::is_equal(Mapping::rotate_once(&self.input, rvs, a, b), v, x, y);
+            if res {
+                return true;
+            }
         }
-        true
+        false
     }
 
-   fn rotate_once(v: &Pattern, rvs: bool, a:bool,b:bool) -> Pattern{
-       let ln = v.len();
-       let mut newv = vec![vec![false;ln]; ln];
-       for r in 0..ln{
-           for c in 0..ln{
-               let rn = if rvs { c } else { r };
-               let cn = if rvs { r } else { c };
-               let rn = if a { ln-rn } else { rn };
-               let cn = if b { ln-cn } else { cn };
-               newv[r][c] = v[rn][cn];
-           }
-       }
-       newv
-   }
+    fn rotate_once(v: &Pattern, rvs: bool, a: bool, b: bool) -> Pattern {
+        let ln = v.len();
+        let mut newv = vec![vec![false; ln]; ln];
+        for r in 0..ln {
+            for c in 0..ln {
+                let rn = if rvs { c } else { r };
+                let cn = if rvs { r } else { c };
+                let rn = if a { ln - rn-1 } else { rn };
+                let cn = if b { ln - cn-1 } else { cn };
+                newv[r][c] = v[rn][cn];
+            }
+        }
+        newv
+    }
 
 
-    fn is_equal(s:Pattern, v: &Pattern, x: usize, y: usize) -> bool {
+    fn is_equal(s: Pattern, v: &Pattern, x: usize, y: usize) -> bool {
         let ln = s.len();
         for r in 0..ln {
             let row = v.get(x + r).unwrap();
@@ -97,21 +103,60 @@ fn extend_every(sz: usize, v: &mut Pattern) {
 }
 
 pub fn day21_1(s: String) -> usize {
-    let mappings = s.split('\n').map(|v| Mapping::parse(v));
+    let mappings: Vec<_> = s.split('\n').map(|v| Mapping::parse(v)).collect();
     let mut current = vec![
         vec![false, true, false],
         vec![false, false, true],
         vec![true, true, true],
     ];
-    for i in 0..5 {
-        if current.len() % 2 == 0 {
-            extend_every(2, &mut current);
-        } else {
-            extend_every(3, &mut current);
+    for _ in 0..5 {
+        let sz = current.len();
+        let d = if sz % 2 == 0 { 2 } else { 3 };
+        extend_every(d, &mut current);
+
+
+        for x in 0..(sz / d) {
+            for y in 0..(sz /d) {
+                let x = x * (d + 1);
+                let y = y * (d + 1);
+                for m in mappings.iter() {
+                    if m.input_match(&mut current, x, y, d) {
+                        m.copy_output(&mut current, x, y);
+                        break;
+                    }
+                }
+            }
         }
+
     }
-    1
+    current.iter().map(|x| x.iter().filter(|&&v| v).count()).sum()
 }
 pub fn day21_2(s: String) -> usize {
-    1
+    let mappings: Vec<_> = s.split('\n').map(|v| Mapping::parse(v)).collect();
+    let mut current = vec![
+        vec![false, true, false],
+        vec![false, false, true],
+        vec![true, true, true],
+    ];
+    for _ in 0..18 {
+        let sz = current.len();
+        let d = if sz % 2 == 0 { 2 } else { 3 };
+        extend_every(d, &mut current);
+
+
+        for x in 0..(sz / d) {
+            for y in 0..(sz /d) {
+                let x = x * (d + 1);
+                let y = y * (d + 1);
+                for m in mappings.iter() {
+                    if m.input_match(&mut current, x, y, d) {
+                        m.copy_output(&mut current, x, y);
+                        break;
+                    }
+                }
+            }
+        }
+
+    }
+    current.iter().map(|x| x.iter().filter(|&&v| v).count()).sum()
 }

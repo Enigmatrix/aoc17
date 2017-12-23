@@ -16,7 +16,7 @@ pub fn day22_1(s: String) -> u32 {
     //println!("PRINTING ORIGINAL MAP");
     //print_map(&map, current);
     let mut infected = 0;
-    for i in 0..10_000{
+    for _ in 0..10_000{
         let current_loc = map.entry(current).or_insert(false);
         dir = if *current_loc {right(dir)} else {left(dir)};
         *current_loc = !*current_loc;
@@ -107,7 +107,7 @@ pub fn day22_2(s: String) -> u32 {
     //println!("PRINTING ORIGINAL MAP");
     //print_map(&map, current);
     let mut infected = 0;
-    for i in 0..10000000{
+    for _ in 0..10000000{
         let current_loc = map.entry(current).or_insert(State::Clean);
         match current_loc{
             &mut State::Clean => { *current_loc = State::Weakened; dir = left(dir); }

@@ -286,6 +286,6 @@ jgz a -2".to_string()));
     }
     #[test]
     fn test_day23_2(){
-        println!("Day 23 (2): {}", day23_2(DAY23.to_string()))
+        println!("Day 23 (2): {}", day23_2())
     }
 }

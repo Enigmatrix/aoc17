@@ -108,11 +108,13 @@ impl<'a> Computer<'a>{
 
     fn run_all(&mut self, instrs: Vec<Instruction<'a>>){
         let instr_len = instrs.len() as i64;
+
+        let mut first = true;
         
-        while !self.programs.values().all(|v| v.borrow().cannot_run) && !self.programs.values().all(|v| v.borrow().empty_queue())  {
+        while first || !self.programs.values().all(|v| v.borrow().cannot_run || v.borrow().empty_queue())  {
             let mut program = self.programs.get(&self.current_running).unwrap().borrow_mut();
 
-
+            let mut waiting = false;
             if program.instr_idx < 0 || program.instr_idx >= instr_len{
                 program.cannot_run = true;
             }
@@ -126,15 +128,15 @@ impl<'a> Computer<'a>{
                     Instruction::Jgz(a,b) => if program.get_value(a) > 0 { program.instr_idx += program.get_value(b)-1 },
                     Instruction::Rcv(x) => {
                         match program.message(){
-                            None        =>   { program.instr_idx -= 1; program.cannot_run = true },
-                            Some(val)   =>   {*program.registers.borrow_mut().entry(x).or_insert(0) = val; program.cannot_run=false;}
+                            None        =>   { program.instr_idx -= 1; waiting = true; first=false},
+                            Some(val)   =>   {*program.registers.borrow_mut().entry(x).or_insert(0) = val;}
                         }
 
                     }                        
                 }
                 program.instr_idx += 1;
             }
-            if program.cannot_run {
+            if program.cannot_run||waiting {
                 self.current_running = if self.current_running == 0 {1} else {0};
                 continue;
             }

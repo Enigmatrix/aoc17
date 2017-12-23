@@ -55,7 +55,7 @@ fn sqrt(n: u32) -> f32 {
   let mut x: f32 = 1.0;
   let mut i = 0;
 
-  while (i < n) {
+  while i < n {
     x = 0.5 * ( x + a / x );
     i += 1;
   }
@@ -86,25 +86,6 @@ fn is_prime(n: u32) -> bool {
     rbool
   }
 }
-pub fn day23_2(s: String) -> usize {
-    /*let v:Vec<_> = s.split('\n').map(|v| Instruction::parse(v)).collect();
-    let ln = v.len() as i64;
-    let mut cur = 0i64;
-    let mut regs = HashMap::new();
-    regs.insert("a", 1);
-
-    while 0 <= cur && cur < ln{
-        println!("{}: {:?}", cur, v[cur as usize]);
-        match v[cur as usize]{
-            Instruction::Set(x,y) => *regs.entry(x).or_insert(0) = parse(y, &mut regs),
-            Instruction::Sub(x,y) => *regs.entry(x).or_insert(0) -= parse(y, &mut regs),
-            Instruction::Mul(x,y) => *regs.entry(x).or_insert(0) *= parse(y, &mut regs),
-            Instruction::Jnz(x,y) => if parse(x, &mut regs) != 0 {
-                cur += parse(y, &mut regs) -1;
-            },
-        }
-        cur +=1
-    }
-    *regs.get("h").unwrap()*/
+pub fn day23_2() -> usize {
     (0..1001).map(|v| 106500+17*v).filter(|&v| !is_prime(v)).count()
 }
