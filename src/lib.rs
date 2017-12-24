@@ -292,7 +292,15 @@ jgz a -2".to_string()));
     }
     #[test]
     fn test_day24_1(){
-        println!("Day 24 (1): {}", day24_1(DAY24.to_string()))
+        assert_eq!(31, day24_1("0/2
+2/2
+2/3
+3/4
+3/5
+0/1
+10/1
+9/10".to_string()));
+        println!("Day 24 (1): {}", day24_1(DAY24.to_string()));
     }
     #[test]
     fn test_day24_2(){
