@@ -27,6 +27,7 @@ mod day21;
 mod day22;
 mod day23;
 mod day24;
+mod day25;
 
 #[cfg(test)]
 mod tests{
@@ -55,6 +56,7 @@ mod tests{
     use day22::*;
     use day23::*;
     use day24::*;
+    use day25::*;
 
     #[test]
     fn test_day01_1(){
@@ -305,5 +307,35 @@ jgz a -2".to_string()));
     #[test]
     fn test_day24_2(){
         println!("Day 24 (2): {}", day24_2(DAY24.to_string()))
+    }
+    #[test]
+    fn test_day25_1(){
+        assert_eq!(3, day25_1("Begin in state A.
+Perform a diagnostic checksum after 6 steps.
+
+In state A:
+  If the current value is 0:
+    - Write the value 1.
+    - Move one slot to the right.
+    - Continue with state B.
+  If the current value is 1:
+    - Write the value 0.
+    - Move one slot to the left.
+    - Continue with state B.
+
+In state B:
+  If the current value is 0:
+    - Write the value 1.
+    - Move one slot to the left.
+    - Continue with state A.
+  If the current value is 1:
+    - Write the value 1.
+    - Move one slot to the right.
+    - Continue with state A.".to_string()));
+        println!("Day 25 (1): {}", day25_1(DAY25.to_string()));
+    }
+    #[test]
+    fn test_day25_2(){
+        println!("Day 25 (2): {}", day25_2(DAY25.to_string()));
     }
 }
